@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+streamlit
+requests
+scapy
+rich
+scikit-learn
+pandas
+numpy
+joblib
+cryptography
+python-multipart

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>PhishGuard · Awareness Lab</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>PhishGuard Awareness Lab</h1>
+  <p class="sub">Spot the red flags. Drag each tag onto the email it belongs to.</p>
+</header>
+
+<section id="tags" class="tag-pool"></section>
+<main id="inbox"></main>
+
+<section class="case-study">
+  <h2>Case Study · The $47M Business Email Compromise</h2>
+  <p>In 2019, attackers spoofed a supplier's domain (two extra hyphens) and
+     requested an urgent wire change. No second-channel verification was
+     performed. The loss was $47M.</p>
+  <ul>
+    <li>Sender domain had a subtle lookalike prefix.</li>
+    <li>Urgency ("today", "before close of business").</li>
+    <li>Changed bank details in a PDF attachment.</li>
+    <li>No call-back verification against a known number.</li>
+  </ul>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

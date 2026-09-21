@@ -1,0 +1,20 @@
+alert dns any any -> any 53 ( \
+  msg:"AEGIS DNS Tunneling - TXT payload > 200 bytes"; \
+  dns_query; byte_test:1,>,200,0,relative; \
+  threshold: type both, track by_src, count 5, seconds 60; \
+  classtype:policy-violation; sid:9000001; rev:1; )
+
+alert ssh any any -> any 22 ( \
+  msg:"AEGIS SSH Brute Force - 8 attempts in 60s"; \
+  threshold: type both, track by_src, count 8, seconds 60; \
+  classtype:attempted-admin; sid:9000002; rev:1; )
+
+alert tcp any any -> any any ( \
+  msg:"AEGIS SYN Port Scan - 25 SYNs in 10s"; \
+  flags:S; threshold: type both, track by_src, count 25, seconds 10; \
+  classtype:attempted-recon; sid:9000003; rev:1; )
+
+alert tls any any -> any any ( \
+  msg:"AEGIS TLS SNI on Suspicious TLD"; \
+  tls.sni; pcre:"/\.(tk|ml|ga|cf|gq|zip|mov)$/i"; \
+  classtype:policy-violation; sid:9000004; rev:1; )

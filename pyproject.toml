@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aegis"
+version = "1.0.0"
+description = "Unified AI Cyber Defense Platform"
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "streamlit",
+    "requests",
+    "scapy",
+    "rich",
+    "scikit-learn",
+    "pandas",
+    "numpy",
+    "joblib",
+    "cryptography",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "bandit"]
+
+[tool.setuptools.packages.find]
+include = ["aegis*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

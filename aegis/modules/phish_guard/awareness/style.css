@@ -1,0 +1,22 @@
+:root{
+  --bg:#070B14; --surface:#0E1626; --border:#243352;
+  --text:#E6EDF7; --muted:#8FA3C4;
+  --ok:#7CF29A; --warn:#F5B301; --bad:#FF3B5C; --brand:#8B5CF6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text);padding:2rem;max-width:960px;margin:auto}
+h1{margin:0 0 .25rem}
+.sub{color:var(--muted);margin:0 0 2rem}
+.tag-pool{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.tag{background:var(--surface);border:1px solid var(--border);padding:.5rem .9rem;border-radius:999px;font-size:.9rem;cursor:grab;user-select:none}
+.tag:active{cursor:grabbing}
+.email{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+.email h3{margin:0 0 .25rem;font-size:1rem}
+.email .meta{color:var(--muted);font-size:.85rem;margin-bottom:.75rem}
+.dropzone{min-height:44px;border:2px dashed var(--border);border-radius:8px;padding:.4rem;display:flex;flex-wrap:wrap;gap:.35rem;transition:border-color .15s}
+.dropzone.over{border-color:var(--brand)}
+.dropzone.ok{border-color:var(--ok)}
+.dropzone.bad{border-color:var(--bad)}
+.tag-placed{background:rgba(139,92,246,.15);border-color:var(--brand);cursor:default}
+.case-study{margin-top:3rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.case-study h2{margin-top:0}

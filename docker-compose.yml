@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    command: uvicorn aegis.api.main:app --host 0.0.0.0 --port 8000
+    ports: ["8000:8000"]
+    volumes:
+      - ./models:/app/models
+      - ./aegis_events.db:/app/aegis_events.db
+    cap_add: [NET_ADMIN, NET_RAW]
+
+  dashboard:
+    build: .
+    command: streamlit run aegis/dashboard/app.py --server.port 8501
+    ports: ["8501:8501"]
+    depends_on: [api]
